@@ -11,9 +11,9 @@
     }
   },
   "sessionStore": {
-    "useRedis": false,
+    "useRedis": true,
     "redisConnectionConfiguration": {
-      "host": "localhost",
+      "host": "redis",
       "port": 6379
     }
   },

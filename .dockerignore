@@ -4,4 +4,3 @@
 *.swm
 node_modules/
 *.sqlite
-dump.rdb
