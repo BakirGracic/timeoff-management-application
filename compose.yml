@@ -1,6 +1,6 @@
 services:
   app:
-    image: timeoff-app
+    image: bakirg/bdoi-timeoff:redis
     build:
       context: .
     ports:
