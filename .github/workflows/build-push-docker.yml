@@ -40,6 +40,5 @@ jobs:
 
       - name: Restart Docker Compose
         run: |
-          docker pull ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}:latest
           docker compose down
-          docker compose up
+          docker compose up -d
