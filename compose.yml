@@ -1,10 +1,10 @@
 services:
   app:
-    image: bakirg/bdoi-timeoff:redis
+    image: bakirg/bdoi-timeoff:latest
     build:
       context: .
     ports:
-      - "3000:3000"
+      - "3020:3020"
     volumes:
       - ./config:/app/config
       - sqlite-data:/app/db
@@ -13,6 +13,7 @@ services:
         condition: service_healthy
     environment:
       - NODE_ENV=production
+      - PORT=3020
       - WAIT_HOSTS=redis:6379
       - WAIT_HOSTS_TIMEOUT=300
       - WAIT_SLEEP_INTERVAL=10

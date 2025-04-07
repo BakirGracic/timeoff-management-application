@@ -1,4 +1,4 @@
-name: Build and Push Docker Image
+name: Docker Build/Push/Deploy
 
 on:
   push:
@@ -27,3 +27,13 @@ jobs:
           tags: |
             ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}:latest
             ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}:${{ github.sha }}
+  
+  deploy:
+    if: ${{ success() }}
+    needs: build_push
+
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
