@@ -3,10 +3,10 @@ FROM node:13-alpine AS stage
 
 WORKDIR /stage
 
+RUN apk add --no-cache python python2 python3
+
 COPY package*.json ./
 RUN npm ci
-
-RUN apk add --no-cache python3
 
 # final
 FROM node:13-alpine AS final
